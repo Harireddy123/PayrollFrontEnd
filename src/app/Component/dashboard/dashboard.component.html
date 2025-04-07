@@ -1,0 +1,67 @@
+<div class="dashboard-container">
+  <div class="header">
+    <img src="assets/logo.png" alt="Logo" class="logo" />
+    <h2>Employee Details</h2>
+    <div class="actions">
+      <mat-icon class="search-icon">search</mat-icon>
+      <button mat-raised-button color="primary" class="add-btn">
+        <mat-icon>add</mat-icon> Add User
+      </button>
+    </div>
+  </div>
+
+  <table
+    mat-table
+    [dataSource]="employeeList"
+    class="mat-elevation-z2 full-width-table"
+  >
+    <!-- Name -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>NAME</th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.profilePic" class="profile-pic" alt="profile" />
+        {{ element.name }}
+      </td>
+    </ng-container>
+
+    <!-- Gender -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef>GENDER</th>
+      <td mat-cell *matCellDef="let element">{{ element.gender }}</td>
+    </ng-container>
+
+    <!-- Department -->
+    <ng-container matColumnDef="department">
+      <th mat-header-cell *matHeaderCellDef>DEPARTMENT</th>
+      <td mat-cell *matCellDef="let element">
+        <span class="department-chip" *ngFor="let dept of element.department">{{
+          dept
+        }}</span>
+      </td>
+    </ng-container>
+
+    <!-- Salary -->
+    <ng-container matColumnDef="salary">
+      <th mat-header-cell *matHeaderCellDef>SALARY</th>
+      <td mat-cell *matCellDef="let element">₹ {{ element.salary }}</td>
+    </ng-container>
+
+    <!-- Start Date -->
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef>START DATE</th>
+      <td mat-cell *matCellDef="let element">{{ element.startDate }}</td>
+    </ng-container>
+
+    <!-- Actions -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>ACTIONS</th>
+      <td mat-cell *matCellDef="let element">
+        <mat-icon class="action-icon">delete</mat-icon>
+        <mat-icon class="action-icon">edit</mat-icon>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

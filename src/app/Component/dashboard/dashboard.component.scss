@@ -1,0 +1,63 @@
+.dashboard-container {
+  padding: 30px;
+  background-color: #f9f9f9;
+}
+
+.header {
+  display: flex;
+  align-items: left;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.logo {
+  height: 50px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-icon {
+  font-size: 28px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: #8bc34a;
+  color: white;
+}
+
+.full-width-table {
+  width: 100%;
+}
+
+.profile-pic {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.department-chip {
+  background-color: #e6f4b2;
+  color: #444;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-right: 6px;
+  display: inline-block;
+}
+
+.action-icon {
+  cursor: pointer;
+  margin: 0 5px;
+  color: #666;
+}
