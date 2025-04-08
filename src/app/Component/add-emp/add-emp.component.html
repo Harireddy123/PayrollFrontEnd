@@ -1,92 +1,112 @@
-<div class="form-container">
-  <h2 class="form-title">Employee Payroll Form</h2>
-
-  <div class="form-row">
-    <label>Name</label>
-    <mat-form-field appearance="outline" class="short-width">
-      <input matInput placeholder="Enter name" />
-    </mat-form-field>
+<!-- Header Section -->
+<div class="header-container">
+  <div class="icon-wrapper">
+    <img src="/images/logo.png" alt="Employee Payroll Logo" class="icon" />
   </div>
-
-  <!-- Profile Image -->
-  <div class="form-row">
-    <label>Profile Image</label>
-    <div class="profile-images">
-      <mat-radio-group>
-        <mat-radio-button
-          *ngFor="let img of profileImages"
-          class="profile-radio"
-          [value]="img"
-        >
-          <img [src]="img" alt="Profile" />
-        </mat-radio-button>
-      </mat-radio-group>
-    </div>
-  </div>
-
-  <!-- Gender -->
-  <div class="form-row">
-    <label>Gender</label>
-    <mat-radio-group>
-      <mat-radio-button value="male">Male</mat-radio-button>
-      <mat-radio-button value="female">Female</mat-radio-button>
-    </mat-radio-group>
-  </div>
-
-  <!-- Department -->
-  <div class="form-row">
-    <label>Department</label>
-    <div class="departments">
-      <mat-checkbox *ngFor="let dept of departments">{{ dept }}</mat-checkbox>
-    </div>
-  </div>
-
-  <div class="form-row">
-    <label>Salary</label>
-    <mat-form-field appearance="outline" class="short-width">
-      <mat-select placeholder="Select Salary">
-        <mat-option *ngFor="let s of salaryOptions" [value]="s">{{
-          s
-        }}</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
-
-  <div class="form-row">
-    <label>Start Date</label>
-    <div class="date-selects-row">
-      <mat-form-field appearance="fill" class="date-select">
-        <mat-select placeholder="Day">
-          <mat-option *ngFor="let d of days" [value]="d">{{ d }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" class="date-select">
-        <mat-select placeholder="Month">
-          <mat-option *ngFor="let m of months" [value]="m">{{ m }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill" class="date-select">
-        <mat-select placeholder="Year">
-          <mat-option *ngFor="let y of years" [value]="y">{{ y }}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-  </div>
-
-  <!-- Notes -->
-  <div class="form-row">
-    <label>Notes</label>
-    <mat-form-field appearance="outline" class="full-width">
-      <textarea matInput placeholder="Enter notes"></textarea>
-    </mat-form-field>
-  </div>
-
-  <!-- Buttons -->
-  <div class="form-actions">
-    <button mat-button color="primary">Cancel</button>
-    <button mat-button color="accent">Submit</button>
-    <button mat-button color="warn">Reset</button>
+  <div class="text-content">
+    <span class="employee-text">EMPLOYEE</span><br />
+    <span class="payroll-text">PAYROLL</span>
   </div>
 </div>
+
+<!-- Form Section -->
+<form [formGroup]="registerForm" (ngSubmit)="Register()">
+  <div class="form-container">
+    <h2 class="form-title">Employee Payroll Form</h2>
+    <div class="form-row">
+      <label>Name</label>
+      <mat-form-field appearance="outline" class="short-width">
+        <input matInput placeholder="Enter name" />
+      </mat-form-field>
+    </div>
+
+    <!-- Profile Image -->
+    <div class="form-row">
+      <label>Profile Image</label>
+      <div class="profile-images">
+        <mat-radio-group>
+          <mat-radio-button
+            *ngFor="let img of profileImages"
+            class="profile-radio"
+            [value]="img"
+          >
+            <img [src]="img" alt="Profile" />
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+
+    <!-- Gender -->
+    <div class="form-row">
+      <label>Gender</label>
+      <mat-radio-group>
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <!-- Department -->
+    <div class="form-row">
+      <label>Department</label>
+      <div class="departments">
+        <mat-checkbox *ngFor="let dept of departments">{{ dept }}</mat-checkbox>
+      </div>
+    </div>
+
+    <!-- Salary -->
+    <div class="form-row">
+      <label>Salary</label>
+      <mat-form-field appearance="outline" class="short-width">
+        <mat-select placeholder="Select Salary">
+          <mat-option *ngFor="let s of salaryOptions" [value]="s">{{
+            s
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Start Date -->
+    <div class="form-row">
+      <label>Start Date</label>
+      <div class="date-selects-row">
+        <mat-form-field appearance="fill" class="date-select">
+          <mat-select placeholder="Day">
+            <mat-option *ngFor="let d of days" [value]="d">{{ d }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="date-select">
+          <mat-select placeholder="Month">
+            <mat-option *ngFor="let m of months" [value]="m">{{
+              m
+            }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="date-select">
+          <mat-select placeholder="Year">
+            <mat-option *ngFor="let y of years" [value]="y">{{ y }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div class="form-row">
+      <label>Notes</label>
+      <mat-form-field appearance="outline" class="full-width">
+        <textarea matInput placeholder="Enter notes"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div class="form-actions">
+      <div class="left-buttons">
+        <button mat-stroked-button color="primary">Cancel</button>
+      </div>
+      <div class="right-buttons">
+        <button mat-stroked-button color="accent">Submit</button>
+        <button mat-stroked-button color="warn">Reset</button>
+      </div>
+    </div>
+  </div>
+</form>

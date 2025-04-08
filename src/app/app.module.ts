@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatChipsModule } from '@angular/material/chips';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, DashboardComponent, AddEmpComponent],
@@ -38,6 +39,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatTableModule,
     MatTooltipModule,
     MatChipsModule,
+    HttpClientModule,
   ],
   providers: [provideClientHydration(withEventReplay())],
   bootstrap: [AppComponent],

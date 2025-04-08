@@ -1,3 +1,31 @@
+.header-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.text-content {
+  line-height: 1;
+}
+
+.employee-text {
+  font-weight: bold;
+  color: #8abf1f; /* green shade */
+  font-size: 14px;
+}
+
+.payroll-text {
+  font-weight: bold;
+  color: #5a5a5a; /* dark gray */
+  font-size: 14px;
+}
+
 .dashboard-container {
   padding: 30px;
   background-color: #f9f9f9;
