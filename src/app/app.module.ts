@@ -8,38 +8,44 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
-import { AddEmpComponent } from './Component/add-emp/add-emp.component';
-import { MatInputModule } from '@angular/material/input';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatChipsModule } from '@angular/material/chips';
+import { RegisterComponent } from './Component/register/register.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon'; // Optional for UI icons
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatTableModule } from '@angular/material/table';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatChipsModule } from '@angular/material/chips';
+import { MatCardModule } from '@angular/material/card';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, DashboardComponent, AddEmpComponent],
+  declarations: [AppComponent, DashboardComponent, RegisterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MatInputModule,
+    MatIconModule,
+    MatIcon,
+    MatButtonModule,
+    MatTableModule,
+    MatTableModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatChipsModule,
     MatRadioModule,
     MatCheckboxModule,
     MatSelectModule,
-    MatButtonModule,
-    MatIconModule,
-    FormsModule,
+    MatCardModule,
     ReactiveFormsModule,
-    MatTableModule,
-    MatTooltipModule,
-    MatChipsModule,
     HttpClientModule,
+    MatSnackBarModule,
+    FormsModule,
   ],
   providers: [provideClientHydration(withEventReplay())],
   bootstrap: [AppComponent],

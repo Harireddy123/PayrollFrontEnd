@@ -1,91 +1,164 @@
-.header-container {
+.app-header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #e0e0e0;
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+
+    .logo-box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #b5c224;
+      padding: 8px;
+      height: 30px;
+      width: 30px;
+      border-radius: 4px;
+
+      .logo-icon {
+        font-size: 20px;
+        color: #5e5e5e;
+      }
+
+      .dollar-sign {
+        color: #5e5e5e;
+        font-weight: bold;
+        margin-left: 4px;
+      }
+    }
+
+    .text-block {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      font-weight: bold;
+
+      .top-text {
+        color: #77a716;
+        font-size: 1.3rem;
+      }
+
+      .bottom-text {
+        color: #5e5e5e;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  .breadcrumb {
+    font-size: 0.95rem;
+    color: #999;
+    font-weight: 500;
+  }
 }
 
-.logo {
-  width: 40px;
-  height: 40px;
+body {
+  background-color: #eceff3d9; // match XD screenshot background
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.headerrow {
+  background-color: #3b4351 !important; // dark grey
+}
+
+.header-column {
+  color: white !important;
+  font-weight: bold !important;
+  font-size: 14px;
+}
+
+.search-box {
+  width: 200px;
   margin-right: 10px;
 }
-
-.text-content {
-  line-height: 1;
+.container {
+  padding: 60px;
+  background-color: gainsboro;
 }
 
-.employee-text {
+.title {
   font-weight: bold;
-  color: #8abf1f; /* green shade */
-  font-size: 14px;
+  color: #454343;
+  margin-bottom: 16px;
 }
 
-.payroll-text {
-  font-weight: bold;
-  color: #5a5a5a; /* dark gray */
-  font-size: 14px;
+.image {
+  border-radius: 20px;
 }
-
-.dashboard-container {
-  padding: 30px;
-  background-color: #f9f9f9;
-}
-
-.header {
+.toolbar {
   display: flex;
-  align-items: left;
   justify-content: space-between;
-  margin-bottom: 25px;
-}
-
-.logo {
-  height: 50px;
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.search-icon {
-  font-size: 28px;
-  background: #fff;
-  border-radius: 50%;
-  padding: 8px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
-}
-
-.add-btn {
-  background-color: #8bc34a;
-  color: white;
+  margin-bottom: 16px;
 }
 
 .full-width-table {
   width: 100%;
 }
 
-.profile-pic {
+// mat-chip{
+//   background-color: #c0ce59 !important;
+
+// }
+mat-chip {
+  background-color: #e7f39b !important;
+  color: #333;
+  font-weight: 500;
+  font-size: 13px;
+  border-radius: 20px;
+}
+
+.avatar {
   height: 40px;
   width: 40px;
   border-radius: 50%;
+  margin-right: 8px;
   vertical-align: middle;
-  margin-right: 10px;
 }
 
-.department-chip {
-  background-color: #e6f4b2;
-  color: #444;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  margin-right: 6px;
-  display: inline-block;
-}
+.employee-container {
+  margin-top: 2rem;
+  padding: 20px;
 
-.action-icon {
-  cursor: pointer;
-  margin: 0 5px;
-  color: #666;
+  .header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .title {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .search-add {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .btn {
+        background-color: #77a716;
+        color: white;
+        /* White text */
+        padding: 10px 20px;
+        border-radius: 0;
+      }
+
+      .search-box {
+        width: 250px;
+        padding: 0.5rem;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+      }
+    }
+  }
 }

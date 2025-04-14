@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddEmpComponent } from './add-emp.component';
+import { RegisterComponent } from './register.component';
 
-describe('AddEmpComponent', () => {
-  let component: AddEmpComponent;
-  let fixture: ComponentFixture<AddEmpComponent>;
+describe('RegisterComponent', () => {
+  let component: RegisterComponent;
+  let fixture: ComponentFixture<RegisterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AddEmpComponent]
+      declarations: [RegisterComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(AddEmpComponent);
+    fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

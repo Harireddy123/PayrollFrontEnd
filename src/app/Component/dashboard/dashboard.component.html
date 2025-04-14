@@ -1,73 +1,105 @@
-<div class="header-container">
-  <img src="/images/logo.png" alt="Employee Payroll Logo" class="logo" />
-  <div class="text-content">
-    <span class="employee-text">EMPLOYEE</span><br />
-    <span class="payroll-text">PAYROLL</span>
+<header class="app-header">
+  <div class="logo-container" (click)="goToDashboard()">
+    <div class="logo-box">
+      <mat-icon class="logo-icon">person</mat-icon>
+      <span class="dollar-sign">$</span>
+    </div>
+    <div class="text-block">
+      <div class="top-text">EMPLOYEE</div>
+      <div class="bottom-text">PAYROLL</div>
+    </div>
   </div>
-</div>
-<div class="dashboard-container">
-  <div class="header">
-    <h2>Employee Details</h2>
-    <div class="actions">
-      <mat-icon class="search-icon">search</mat-icon>
-      <button mat-raised-button color="primary" class="add-btn">
-        <mat-icon>add</mat-icon> Add User
+  <nav class="breadcrumb"></nav>
+</header>
+
+<div class="employee-container">
+  <div class="header-row">
+    <h3 class="title">Employee Details</h3>
+
+    <div class="search-add">
+      <mat-icon class="search-icon" (click)="toggleSearch()">search</mat-icon>
+      <input
+        *ngIf="showSearch"
+        [(ngModel)]="searchText"
+        (input)="applyFilter()"
+        matInput
+        placeholder="Search"
+        class="search-box"
+      />
+
+      <!-- <mat-icon class="search-icon">search</mat-icon> -->
+      <button mat-raised-button routerLink="/register" class="btn">
+        + Add User
       </button>
     </div>
   </div>
-
-  <table
-    mat-table
-    [dataSource]="employeeList"
-    class="mat-elevation-z2 full-width-table"
-  >
-    <!-- Name -->
+  <table mat-table [dataSource]="data" class="mat-elevation-z8 w-100">
     <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>NAME</th>
+      <th mat-header-cell *matHeaderCellDef class="header-column">NAME</th>
       <td mat-cell *matCellDef="let element">
-        <img [src]="element.profilePic" class="profile-pic" alt="profile" />
+        <!-- <img src="avatar1.jpg" width="40" height="40" class="image" /> -->
+        <img [src]="element.image" width="40" height="40" class="image" />
         {{ element.name }}
       </td>
     </ng-container>
 
-    <!-- Gender -->
     <ng-container matColumnDef="gender">
-      <th mat-header-cell *matHeaderCellDef>GENDER</th>
+      <th mat-header-cell *matHeaderCellDef class="header-column">GENDER</th>
       <td mat-cell *matCellDef="let element">{{ element.gender }}</td>
     </ng-container>
 
-    <!-- Department -->
     <ng-container matColumnDef="department">
-      <th mat-header-cell *matHeaderCellDef>DEPARTMENT</th>
+      <th mat-header-cell *matHeaderCellDef class="header-column">
+        DEPARTMENT
+      </th>
       <td mat-cell *matCellDef="let element">
-        <span class="department-chip" *ngFor="let dept of element.department">{{
-          dept
-        }}</span>
+        <mat-chip-listbox>
+          <mat-chip
+            disabled-outline-color
+            class="chip"
+            *ngFor="let dep of [element.department]"
+            >{{ dep }}</mat-chip
+          >
+        </mat-chip-listbox>
       </td>
     </ng-container>
 
-    <!-- Salary -->
     <ng-container matColumnDef="salary">
-      <th mat-header-cell *matHeaderCellDef>SALARY</th>
+      <th mat-header-cell *matHeaderCellDef class="header-column">SALARY</th>
       <td mat-cell *matCellDef="let element">₹ {{ element.salary }}</td>
     </ng-container>
 
-    <!-- Start Date -->
     <ng-container matColumnDef="startDate">
-      <th mat-header-cell *matHeaderCellDef>START DATE</th>
+      <th mat-header-cell *matHeaderCellDef class="header-column">
+        START DATE
+      </th>
       <td mat-cell *matCellDef="let element">{{ element.startDate }}</td>
     </ng-container>
 
-    <!-- Actions -->
     <ng-container matColumnDef="actions">
-      <th mat-header-cell *matHeaderCellDef>ACTIONS</th>
+      <th mat-header-cell *matHeaderCellDef class="header-column">ACTIONS</th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon class="action-icon">delete</mat-icon>
-        <mat-icon class="action-icon">edit</mat-icon>
+        <button
+          mat-icon-button
+          color="warn"
+          (click)="deleteEmployee(element.id)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+        <!-- <button mat-icon-button color="accent">
+            <mat-icon>edit</mat-icon>
+          </button> -->
+        <button
+          mat-icon-button
+          color="accent"
+          [routerLink]="['/register', element.id]"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    <tr mat-header-row *matHeaderRowDef="columns" class="headerrow"></tr>
+    <tr mat-row *matRowDef="let row; columns: columns"></tr>
   </table>
 </div>
